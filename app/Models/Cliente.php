@@ -12,7 +12,7 @@ class Cliente extends Model
 
     public function alquileres()
     {
-        return $this->hasMany(alquiler::class, 'id_cliente', 'id_cliente');
+        return $this->hasMany(Alquiler::class, 'id_cliente', 'id_cliente');
     }
 }
 

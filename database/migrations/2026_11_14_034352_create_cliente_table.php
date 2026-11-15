@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('dni', 8)->unique();
             $table->string('email')->unique();
-            $table->integer('telefono');
+            $table->string('telefono',20);
             $table->timestamps();
         });
     }

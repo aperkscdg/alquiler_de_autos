@@ -12,7 +12,7 @@ class Auto extends Model
 
     public function alquileres()
     {
-        return $this->hasMany(alquiler::class, 'id_auto', 'id_auto');
+        return $this->hasMany(Alquiler::class, 'id_auto', 'id_auto');
     }
 }
 
