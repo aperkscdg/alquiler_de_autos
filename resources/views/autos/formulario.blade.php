@@ -32,6 +32,6 @@
         @error('estado') <div class="invalid-feedback">{{ $message }}</div> @enderror
     </div>
 
-    <button class="btn btn-primary">Guardar</button>
-    <a href="{{ route('autos.index') }}" class="btn btn-secondary">Cancelar</a>
+    <button class="btn btn-outline-light btn-lg me-4 my-3">Guardar</button>
+    <a href="{{ route('autos.index') }}" class="btn btn-outline-danger btn-lg">Cancelar</a>
 </form>

@@ -41,7 +41,7 @@ class AlquilerController extends Controller
         $autos = Auto::where('estado', 'activo')->get(); 
         $clientes = Cliente::all();
         
-        return view('alquileres.create', compact('autos', 'clientes'));
+        return view('alquileres.nuevo_enc', compact('autos', 'clientes'));
     }
 
     // 3. GUARDAR EN LA BASE DE DATOS
@@ -66,7 +66,7 @@ class AlquilerController extends Controller
         $autos = Auto::all();
         $clientes = Cliente::all();
 
-        return view('alquileres.edit', compact('alquiler', 'autos', 'clientes'));
+        return view('alquileres.edit_enc', compact('alquiler', 'autos', 'clientes'));
     }
 
     // 5. ACTUALIZAR EN LA BASE DE DATOS

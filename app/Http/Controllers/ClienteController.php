@@ -27,7 +27,7 @@ class ClienteController extends Controller
 
     public function create()
     {
-        return view('clientes.create');
+        return view('clientes.nuevo_enc');
     }
 
     public function store(ClienteRequest $request)
@@ -38,7 +38,7 @@ class ClienteController extends Controller
 
     public function edit(Cliente $cliente)
     {
-        return view('clientes.edit', compact('cliente'));
+        return view('clientes.edit_enc', compact('cliente'));
     }
 
     public function update(ClienteRequest $request, Cliente $cliente)

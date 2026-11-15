@@ -26,7 +26,7 @@ class AutoController extends Controller
 
     public function create()
     {
-        return view('autos.create');
+        return view('autos.nuevo_enc');
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class AutoController extends Controller
     public function edit(Auto $auto)
     {
         // Usamos route model binding con la clave primaria personalizada
-        return view('autos.edit', compact('auto'));
+        return view('autos.edit_enc', compact('auto'));
     }
 
     public function update(Request $request, Auto $auto)

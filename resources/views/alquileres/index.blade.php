@@ -3,19 +3,18 @@
 @section('titulo', 'Alquileres')
 
 @section('contenido')
+
     <div class="d-flex justify-content-between mb-3">
-        <h1 class="h3">Alquileres</h1>
+        <h1 class="text-danger">Alquileres</h1>
         <div>
-            <a href="{{ route('autos.index') }}" class="btn btn-outline-secondary">Autos</a>
-            <a href="{{ route('clientes.index') }}" class="btn btn-outline-secondary">Clientes</a>
-            <a href="{{ route('alquileres.create') }}" class="btn btn-success">Nuevo alquiler</a>
+            <a href="{{ route('alquileres.create') }}" class="btn btn-outline-success">Nuevo alquiler</a>
         </div>
     </div>
 
     @include('partials.buscador', ['ruta' => 'alquileres.index'])
 
-    <table class="table table-striped bg-white">
-        <thead>
+    <table class="table table-striped bg-warning table-hover">
+        <thead class="bg-danger text-white">
             <tr>
                 @include('partials.th-sort', ['ruta' => 'alquileres.index', 'campo' => 'id_alquiler', 'etiqueta' => 'ID'])
                 <th>Cliente</th>
@@ -25,7 +24,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             @forelse ($alquileres as $alquiler)
                 <tr>
                     <td>{{ $alquiler->id_alquiler }}</td>
@@ -34,11 +33,11 @@
                     <td>{{ $alquiler->fecha_inicio }}</td>
                     <td>{{ $alquiler->fecha_fin }}</td>
                     <td class="text-end">
-                        <a href="{{ route('alquileres.edit', $alquiler) }}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{{ route('alquileres.edit', $alquiler) }}" class="btn btn-outline-light">Editar</a>
                         <form action="{{ route('alquileres.destroy', $alquiler) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar este alquiler?')">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-sm btn-danger">Eliminar</button>
+                            <button class="btn btn-outline-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>

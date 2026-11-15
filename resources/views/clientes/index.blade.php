@@ -4,17 +4,16 @@
 
 @section('contenido')
     <div class="d-flex justify-content-between mb-3">
-        <h1 class="h3">Clientes</h1>
-        <div>
-            <a href="{{ route('alquileres.index') }}" class="btn btn-outline-secondary">Volver</a>
-            <a href="{{ route('clientes.create') }}" class="btn btn-success">Nuevo cliente</a>
+        <h1 class="text-danger">Clientes</h1>
+        <div> 
+            <a href="{{ route('clientes.create') }}" class="btn btn-outline-success">Nuevo cliente</a>
         </div>
     </div>
 
     @include('partials.buscador', ['ruta' => 'clientes.index'])
 
-    <table class="table table-striped bg-white">
-        <thead>
+    <table class="table table-striped bg-warning table-hover">
+        <thead class="bg-danger text-white">
             <tr>
                 @include('partials.th-sort', ['ruta' => 'clientes.index', 'campo' => 'id_cliente', 'etiqueta' => 'ID'])
                 @include('partials.th-sort', ['ruta' => 'clientes.index', 'campo' => 'apellido', 'etiqueta' => 'Apellido'])
@@ -35,11 +34,11 @@
                     <td>{{ $cliente->email }}</td>
                     <td>{{ $cliente->telefono }}</td>
                     <td class="text-end">
-                        <a href="{{ route('clientes.edit', $cliente) }}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{{ route('clientes.edit', $cliente) }}" class="btn btn-outline-light">Editar</a>
                         <form action="{{ route('clientes.destroy', $cliente) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar este cliente?')">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-sm btn-danger">Eliminar</button>
+                            <button class="btn btn-outline-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>

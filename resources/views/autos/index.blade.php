@@ -4,17 +4,16 @@
 
 @section('contenido')
     <div class="d-flex justify-content-between mb-3">
-        <h1 class="h3">Autos</h1>
+        <h1 class="text-danger">Autos</h1>
         <div>
-            <a href="{{ route('alquileres.index') }}" class="btn btn-outline-secondary">Volver</a>
-            <a href="{{ route('autos.create') }}" class="btn btn-success">Nuevo auto</a>
+            <a href="{{ route('autos.create') }}" class="btn btn-outline-success">Nuevo auto</a>
         </div>
     </div>
 
     @include('partials.buscador', ['ruta' => 'autos.index'])
 
-    <table class="table table-striped bg-white">
-        <thead>
+    <table class="table table-striped bg-warning table-hover">
+        <thead class="bg-danger text-white">
             <tr>
                 @include('partials.th-sort', ['ruta' => 'autos.index', 'campo' => 'id_auto', 'etiqueta' => 'ID'])
                 @include('partials.th-sort', ['ruta' => 'autos.index', 'campo' => 'marca', 'etiqueta' => 'Marca'])
@@ -33,11 +32,11 @@
                     <td>${{ $auto->precio }}</td>
                     <td>{{ $auto->estado }}</td>
                     <td class="text-end">
-                        <a href="{{ route('autos.edit', $auto) }}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{{ route('autos.edit', $auto) }}" class="btn btn-outline-light">Editar</a>
                         <form action="{{ route('autos.destroy', $auto) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar este auto?')">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-sm btn-danger">Eliminar</button>
+                            <button class="btn btn-outline-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>
